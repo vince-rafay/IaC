@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     run: alpine
-  name: alpine
+  name: alpine2
   namespace: devqa
 spec:
   replicas: 1
