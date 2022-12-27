@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: xwing
+  namespace: vmh-prod
+  labels:
+    app.kubernetes.io/name: xwing
+    org: alliance
+    class: xwing
+spec:
+  containers:
+  - name: spaceship
+    image: docker.io/tgraf/netperf
+    command:
+      - sh
+      - "-c"
+      - |
+        while true
+        do
+        sleep 3
+        curl -m 1 -s -XPOST deathstar.demo-ns-1.svc.cluster.local/v1/request-landing
+        done
